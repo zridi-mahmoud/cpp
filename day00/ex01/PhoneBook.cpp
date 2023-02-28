@@ -58,7 +58,7 @@ void PhoneBook::printContact(int index, bool darkestSecret){
         std::cout << "Darkest Secret: " << contacts[index].darkestSecret << std::endl;
     }
     else{
-        std::cout << "|"<< tenChars(std::to_string(index)) << "|";
+        std::cout << "|"<< tenChars(std::to_string(index + 1)) << "|";
         std::cout << tenChars(contacts[index].firstName) << "|";
         std::cout << tenChars(contacts[index].lastName) << "|";
         std::cout << tenChars(contacts[index].nickname) << "|";

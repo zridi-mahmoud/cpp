@@ -30,7 +30,7 @@ int main()
             std::string indexStr;
             if (!std::getline(std::cin, indexStr))
                 break;
-            index = atoi(indexStr.c_str());
+            index = atoi(indexStr.c_str()) - 1;
             if (index >= 0 && index < 8 && phoneBook.contacts[index].firstName.length() > 0)
             {
                 phoneBook.printHeader();
