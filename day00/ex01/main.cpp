@@ -9,7 +9,8 @@ int main()
     {
         std::string command;
         std::cout << "Enter a command: ";
-        std::getline(std::cin, command);
+        if (!std::getline(std::cin, command))
+            break;
         if (command == "EXIT")
             break;
         else if (command == "ADD")
@@ -22,16 +23,18 @@ int main()
             for (int i = 0; i < 8; i++)
             {
                 if (phoneBook.contacts[i].firstName.length() > 0)
-                    phoneBook.printContact(i);
+                    phoneBook.printContact(i, false);
             }
             std::cout << "Enter index: ";
             int index;
             std::string indexStr;
-            std::getline(std::cin, indexStr);
-            index = std::stoi(indexStr);
+            if (!std::getline(std::cin, indexStr))
+                break;
+            index = atoi(indexStr.c_str());
             if (index >= 0 && index < 8 && phoneBook.contacts[index].firstName.length() > 0)
             {
-                phoneBook.printContact(index);
+                phoneBook.printHeader();
+                phoneBook.printContact(index, true);
             }
             else
                 std::cout << "Invalid index" << std::endl;

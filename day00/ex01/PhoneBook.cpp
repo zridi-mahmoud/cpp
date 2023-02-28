@@ -21,18 +21,25 @@ PhoneBook::PhoneBook()
 void PhoneBook::add()
 {
 
-    std::string firstName, lastName, nickname, phone;
+    std::string firstName, lastName, nickname, phone, darkestSecret;
     std::cout << "Enter first name: ";
-    std::getline(std::cin, firstName);
+    if(!std::getline(std::cin, firstName))
+        exit(0);
     std::cout << "Enter last name: ";
-    std::getline(std::cin, lastName);
+    if(!std::getline(std::cin, lastName))
+        exit(0);
     std::cout << "Enter nickname: ";
-    std::getline(std::cin, nickname);
+    if(!std::getline(std::cin, nickname))
+        exit(0);
     std::cout << "Enter phone: ";
-    std::getline(std::cin, phone);
-    if (firstName.length() == 0 || lastName.length() == 0 || nickname.length() == 0 || phone.length() == 0)
+    if (!std::getline(std::cin, phone))
+        exit(0);
+    std::cout << "Enter darkest secret: ";
+    if (!std::getline(std::cin, darkestSecret))
+        exit(0);
+    if (firstName.length() == 0 || lastName.length() == 0 || nickname.length() == 0 || phone.length() == 0 || darkestSecret.length() == 0)
         std::cout << "Invalid contact, all fields are required" << std::endl;
-    contacts[++lastContactIndex % 8] = Contact(firstName, lastName, nickname, phone);
+    contacts[++lastContactIndex % 8] = Contact(firstName, lastName, nickname, phone, darkestSecret);
 }
 void PhoneBook::printHeader(){
     std::cout << "|   Index  |";
@@ -41,6 +48,20 @@ void PhoneBook::printHeader(){
     std::cout << " Nickname |" << std::endl;
 };
 
-void PhoneBook::printContact(int index){
-    std::cout << "|"<< tenChars(std::to_string(index)) << "|" << tenChars(contacts[index].firstName) << "|" << tenChars(contacts[index].lastName) << "|" << tenChars(contacts[index].nickname) << "|" << std::endl;
+void PhoneBook::printContact(int index, bool darkestSecret){
+    if (darkestSecret)
+    {
+        std::cout << "First Name: " << contacts[index].firstName << std::endl;
+        std::cout << "Last Name: " << contacts[index].lastName << std::endl;
+        std::cout << "Nickname: " << contacts[index].nickname << std::endl;
+        std::cout << "Phone: " << contacts[index].phone << std::endl;
+        std::cout << "Darkest Secret: " << contacts[index].darkestSecret << std::endl;
+    }
+    else{
+        std::cout << "|"<< tenChars(std::to_string(index)) << "|";
+        std::cout << tenChars(contacts[index].firstName) << "|";
+        std::cout << tenChars(contacts[index].lastName) << "|";
+        std::cout << tenChars(contacts[index].nickname) << "|";
+        std::cout << std::endl;
+    }
 };

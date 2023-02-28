@@ -6,7 +6,7 @@
 /*   By: mzridi <mzridi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 16:45:41 by mzridi            #+#    #+#             */
-/*   Updated: 2023/02/19 14:29:18 by mzridi           ###   ########.fr       */
+/*   Updated: 2023/02/28 20:34:20 by mzridi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ public:
     PhoneBook();
     void add();
     void printHeader();
-    void printContact(int index);
+    void printContact(int index, bool darkesSecret);
 };
 
 # endif
