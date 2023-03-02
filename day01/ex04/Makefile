@@ -5,17 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mzridi <mzridi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/02 19:53:27 by mzridi            #+#    #+#              #
-#    Updated: 2023/03/02 19:53:28 by mzridi           ###   ########.fr        #
+#    Created: 2023/03/02 23:14:37 by mzridi            #+#    #+#              #
+#    Updated: 2023/03/02 23:53:17 by mzridi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-
-NAME = megaphone
+NAME = replace
 
 CC = c++
 
-SRC = megaphone.cpp
+SRC = main.cpp
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
@@ -26,7 +25,6 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(OBJ) $(FLAGS) -o $(NAME)
-
 
 %.cpp:
 

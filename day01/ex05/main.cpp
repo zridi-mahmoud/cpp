@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzridi <mzridi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/28 23:39:29 by mzridi            #+#    #+#             */
-/*   Updated: 2023/03/02 20:25:37 by mzridi           ###   ########.fr       */
+/*   Created: 2023/03/03 00:48:08 by mzridi            #+#    #+#             */
+/*   Updated: 2023/03/03 00:56:04 by mzridi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
+#include "Harl.hpp"
 
-HumanA::HumanA(std::string const &name, Weapon &weapon): weapon(weapon)
+int main()
 {
-    this->name = name;
-}
-
-void HumanA::attack()
-{
-    std::cout << this->name << " attacks with their " << this->weapon.getType() << std::endl;
-}
-
-HumanA::~HumanA()
-{
-    
+    Harl harl;
+    harl.complain("debug");
+    harl.complain("info");
+    harl.complain("warning");
+    harl.complain("error");
+    harl.complain("not a level");
+    return (0);
 }
