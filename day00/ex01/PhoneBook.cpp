@@ -1,5 +1,25 @@
 #include "PhoneBook.hpp"
 
+int PhoneBook::getLastContactIndex()
+{
+    return lastContactIndex;
+}
+
+void PhoneBook::setLastContactIndex(int lastContactIndex)
+{
+    this->lastContactIndex = lastContactIndex;
+}
+
+Contact PhoneBook::getContact(int index)
+{
+    return contacts[index];
+}
+
+void PhoneBook::setContact(int index, Contact contact)
+{
+    contacts[index] = contact;
+}
+
 std::string PhoneBook::tenChars(std::string str)
 {
     if (str.length() > 10)
@@ -51,17 +71,17 @@ void PhoneBook::printHeader(){
 void PhoneBook::printContact(int index, bool darkestSecret){
     if (darkestSecret)
     {
-        std::cout << "First Name: " << contacts[index].firstName << std::endl;
-        std::cout << "Last Name: " << contacts[index].lastName << std::endl;
-        std::cout << "Nickname: " << contacts[index].nickname << std::endl;
-        std::cout << "Phone: " << contacts[index].phone << std::endl;
-        std::cout << "Darkest Secret: " << contacts[index].darkestSecret << std::endl;
+        std::cout << "First Name: " << contacts[index].getFirstName() << std::endl;
+        std::cout << "Last Name: " << contacts[index].getLastName() << std::endl;
+        std::cout << "Nickname: " << contacts[index].getNickname() << std::endl;
+        std::cout << "Phone: " << contacts[index].getPhone() << std::endl;
+        std::cout << "Darkest Secret: " << contacts[index].getDarkestSecret() << std::endl;
     }
     else{
         std::cout << "|"<< tenChars(std::to_string(index + 1)) << "|";
-        std::cout << tenChars(contacts[index].firstName) << "|";
-        std::cout << tenChars(contacts[index].lastName) << "|";
-        std::cout << tenChars(contacts[index].nickname) << "|";
+        std::cout << tenChars(contacts[index].getFirstName()) << "|";
+        std::cout << tenChars(contacts[index].getLastName()) << "|";
+        std::cout << tenChars(contacts[index].getNickname()) << "|" << std::endl;
         std::cout << std::endl;
     }
 };

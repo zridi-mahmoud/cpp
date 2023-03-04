@@ -22,7 +22,7 @@ int main()
             phoneBook.printHeader();
             for (int i = 0; i < 8; i++)
             {
-                if (phoneBook.contacts[i].firstName.length() > 0)
+                if (phoneBook.getContact(i).getFirstName().length() > 0)
                     phoneBook.printContact(i, false);
             }
             std::cout << "Enter index: ";
@@ -31,7 +31,7 @@ int main()
             if (!std::getline(std::cin, indexStr))
                 break;
             index = atoi(indexStr.c_str()) - 1;
-            if (index >= 0 && index < 8 && phoneBook.contacts[index].firstName.length() > 0)
+            if (index >= 0 && index < 8 && phoneBook.getContact(index).getFirstName().length() > 0)
             {
                 phoneBook.printHeader();
                 phoneBook.printContact(index, true);
