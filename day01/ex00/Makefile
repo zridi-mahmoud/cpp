@@ -6,7 +6,7 @@
 #    By: mzridi <mzridi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 21:35:46 by mzridi            #+#    #+#              #
-#    Updated: 2023/02/28 21:24:35 by mzridi           ###   ########.fr        #
+#    Updated: 2023/03/04 23:21:37 by mzridi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,6 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(OBJ) $(FLAGS) -o $(NAME)
 
-
-%.cpp:
 
 %.o: %.cpp Zombie.hpp
 	$(CC) $(FLAGS) -c $< -o $@

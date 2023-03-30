@@ -6,13 +6,14 @@
 /*   By: mzridi <mzridi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 20:53:13 by mzridi            #+#    #+#             */
-/*   Updated: 2023/03/02 23:51:44 by mzridi           ###   ########.fr       */
+/*   Updated: 2023/03/11 17:50:19 by mzridi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <limits>
 
 void replace(std::string *content, size_t pos, long long len, std::string s2)
 {
@@ -63,16 +64,14 @@ int main(int argc, char **argv)
         replace(&content, pos, s1.length(), s2);
         pos += s2.length();
     }
-    try {
-        std::ofstream ofs(filename + ".replace");
-    }
-    catch (std::exception &e)
+    std::ofstream ofs(filename + ".replace");
+    if (!ofs.is_open())
     {
-        std::cout << "Error: " << e.what() << std::endl;
+        std::cout << "Error: file not found" << std::endl;
         return (1);
     }
-    // ofs << content;
-    // ofs.close();
+    ofs << content;
+    ofs.close();
     return (0);
 }
     

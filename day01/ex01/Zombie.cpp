@@ -6,7 +6,7 @@
 /*   By: mzridi <mzridi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 22:30:28 by mzridi            #+#    #+#             */
-/*   Updated: 2023/02/28 22:38:55 by mzridi           ###   ########.fr       */
+/*   Updated: 2023/03/04 23:56:55 by mzridi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,16 @@
 
 Zombie::Zombie()
 {
+}
+
+std::string Zombie::getName()
+{
+    return std::string();
+}
+
+void Zombie::setName(std::string name)
+{
+    this->name = name;
 }
 
 Zombie::Zombie(std::string name)
